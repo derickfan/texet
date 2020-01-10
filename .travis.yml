@@ -1,8 +1,15 @@
 language: node_js
 node_js:
-    - stable
+- stable
 cache:
-    directories:
-        - node_modules
+  directories:
+  - node_modules
 script:
-    - echo Hello World
+- echo Hello World
+deploy:
+  provider: heroku
+  api_key:
+    secure: yG74N4AY7S5Xjya94ibqXnesNwE6BKQAaDG7f1nsiESwgNJNr4Jz9Sj6i8dDr0e6j6TOww6ZCFCmCzDVbaXq0mmA9LvJfUPRORfbjjmVDKfb2aXsZGytwRoei7SKqrqWnyJ9mlWCX7sNB5spoWkgYzL2VW/kz1AIBBtb67lUVM872v9bA4t2wp7YHuEOI/rwLFp/oAcQZbDY2AsYDNtS23wfbQWxyWJSuRW6TWnbSMPViKOuQ+hKaWQ2+2/zkryIsEuk13/xGrPt2Be7HXmh6mqB1VDwKs6aW7Ow5VHuWmXmgnxqfrGAF1AqmjJmJGGEflPTenPThJUvPkK8h4iw83cNCBZoRks9T8LjFX/N1pszGzNSKCcQ1Z52nMO0/j5LqvE0hT02cEnrMc1ktXWSFxZarAeQIC5P2gPZduDv2/viErj0JDs1n0L8PBnrxXwULkpdkfl0SM0qa0UhYr8BCOXG4TNu3kIjwXgwUoj8l7zwZIF4HGHLem2SC5hAwJnQ04jX+jbB0ptGfJ2Vq2odXNpXPBV6YzX0groKAfJXZTIPwNyrJ2qguVqircwHHShtnxLk7rrZuEySLRBJakoPRvBzj7h42IqChDDhZam8jkXskymRki54KVKe1mO3l2qE+GN23FtRIhPpg/lN+2aaUvnCgodhYiwJfJw/g+Ygc2w=
+  app: texet
+  on:
+    repo: derickfan/texet
