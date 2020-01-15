@@ -7,13 +7,28 @@
     <script src='https://morning-beyond-78477.herokuapp.com/socket.io/socket.io.js'></script>
     <!-- <script src='http://localhost:5000/socket.io/socket.io.js'></script> -->
     <script src='scripts.js'></script>
+    <link rel='stylesheet' href="style.css"> 
     <title>Texet</title>
 </head>
 <body>
-    <h1>Texet</h1>
-    <div class='container' id='text-history'></div>
-    <form action='javascript:sendMessage()'>
-        <p>Message:<input type='text' id='text-input'><button>Send</button></p>
-    </form>
+    <div class='container'>
+        <div class='nav-container'>
+            <h1>Texet</h1>
+        </div>
+        <div class='body-container'>
+            <div class='user-container'></div>
+            <div class='chatbox-container'>
+                <div class='chatbox'>
+                    <div class='message-container' id='text-history'></div>
+                    <div class='input-container'>
+                        <input type='text' id='text-input' onchange='sendMessage()'>
+                    </div>
+                </div>
+            </div>
+            <div class='channel-container'>
+                <div class='channel'></div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
