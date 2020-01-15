@@ -1,11 +1,15 @@
 let person = prompt("Please enter your name", "");
 let socket = io.connect('https://morning-beyond-78477.herokuapp.com/', {query: `name=${person}`})
-// let socket = io.connect('http://localhost:5000', {query: `name=${person}`})
+// let socket = io.connect('http://localhost:5000', {query: `name=Derick`})
 socket.emit('join')
 
 socket.on('message', (data) => {
     concatMessage(data)
 })
+
+const requestLoop = setInterval(() => {
+    socket.emit('checking-connection')
+}, 25000)
 
 function sendMessage() {
     let textInput = document.getElementById('text-input')
