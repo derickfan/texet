@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src='https://morning-beyond-78477.herokuapp.com/socket.io/socket.io.js'></script>
-    <!-- <script src='http://localhost:5000/socket.io/socket.io.js'></script> -->
-    <script src='scripts.js'></script>
+    <!-- <script src='https://morning-beyond-78477.herokuapp.com/socket.io/socket.io.js'></script> -->
+    <script src='http://localhost:5000/socket.io/socket.io.js'></script>
     <link rel='stylesheet' href="style.css"> 
     <title>Texet</title>
 </head>
@@ -16,19 +15,25 @@
             <h1>Texet</h1>
         </div>
         <div class='body-container'>
-            <div class='user-container'></div>
+            <div class='user-container'>
+                <div id='username'>
+                    Username:
+                    <input type='text' id='username-input' onchange='login()' autocomplete='off'>
+                </div>
+            </div>
             <div class='chatbox-container'>
                 <div class='chatbox'>
                     <div class='message-container' id='text-history'></div>
                     <div class='input-container'>
-                        <input type='text' id='text-input' onchange='sendMessage()'>
+                        <input type='text' id='text-input' onchange='sendMessage()' autocomplete='off'>
                     </div>
                 </div>
             </div>
-            <div class='channel-container'>
-                <div class='channel'></div>
+            <div class='user-container' id='users'>
+                <h1>Online Users</h1>
             </div>
         </div>
     </div>
+    <script defer src='scripts.js'></script>
 </body>
 </html>
