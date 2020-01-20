@@ -22,11 +22,14 @@
                     <input type='button' id='login-button' value='login' onchange='login()'>
                 </div>
             </div>
-            <div class='chatbox-container'>
-                <div class='chatbox'>
-                    <div class='message-container' id='text-history'></div>
+            <div class='chatbox-container' id='chatbox-container'>
+                <div class='chatbox-nav' id='chatbox-nav'>
+                    <button onclick="switchMessageWindow('global')">Global</button>
+                </div>
+                <div class='chatbox' id='global-chatbox'>
+                    <div class='message-container' id='global-history'></div>
                     <div class='input-container'>
-                        <input type='text' id='text-input' onchange='sendMessage()' autocomplete='off'>
+                        <input type='text' class='text-input' id='global-input' onchange='sendMessage()' autocomplete='off'>
                     </div>
                 </div>
             </div>
