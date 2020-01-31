@@ -32,6 +32,21 @@ socket.on('leave', (name) => {
     userLeave(name)
 })
 
+socket.on('login', () => {
+    login()
+})
+socket.on('name-taken', () => {
+    let error = document.getElementById('name-error')
+    if(error == undefined) {
+        let element = document.getElementById('username')
+        let error = document.createElement('p')
+        error.innerHTML = 'Name already exists'
+        error.setAttribute('id', 'name-error')
+        error.setAttribute('style', 'color:red')
+        element.appendChild(error)
+    } 
+})
+
 function newMessageWindow(name) {
     let chatbox = document.getElementById(`${name}-chatbox`)
     if (chatbox === null) {
@@ -117,11 +132,15 @@ function concatMessage(messageObj, chatbox) {
     textHistory.appendChild(newDiv)
 }
 
+function attemptLogin(){
+    username = document.getElementById('username-input').value
+    socket.emit('login', username)
+}
+
 function login() {
     username = document.getElementById('username-input').value
     document.getElementById('username').innerHTML = username
     document.getElementById('global-input').disabled = false
-    socket.emit('login', username)
     activeChat = 'global'
     // every 25 seconds client will ping the server
     // due to deployment on heroku if inactive for 30 seconds
