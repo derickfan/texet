@@ -40,6 +40,11 @@ function userJoined(name) {
     users.appendChild(button)
 }
 
+function userLeave(name) {
+    let button = document.getElementById(name)
+    button.remove()
+}
+
 function attemptLogin(){
     socket.emit('login', document.getElementById('username-input').value)
 }
@@ -63,7 +68,9 @@ socket.on('name-taken', () => {
 
 function login() {
     username = document.getElementById('username-input').value
-    document.getElementById('info-container').innerHTML = username
+    let element = document.createElement('h1')
+    element.innerHTML = `${username}`
+    document.getElementById('username').innerHTML = element.outerHTML
     document.getElementById('text-input').disabled = false
     activeChat = 'Global'
     // every 25 seconds client will ping the server

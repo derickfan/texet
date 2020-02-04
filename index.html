@@ -11,42 +11,35 @@
 </head>
 <body>
     <div id='container'>
-        <div id='info-container'>
-            <h1>Texet</h1>
-            <div>
-                Guest Name:
-                <input id='username-input' onchange="attemptLogin()">
+        <div id='online-container'>
+            <div id='info-container'>
+                <div id='logo'>
+                    <h1>Texet</h1>
+                </div>
+                <div id='username'>
+                    Name:
+                    <input id='username-input' onchange="attemptLogin()">
+                    <button onsubmit="attemptLogin()">login</button>
+                </div>
             </div>
-            <button onsubmit="attemptLogin()">Login</button>
+            <div id='user-container'>
+                <h1>Online Users</h1>
+            </div>
+            <div id='room-container'>
+                <h1>Online Rooms</h1>
+                <button class='user-button' id='Global' onclick="switchMessageWindow(id)">Global</button>
+            </div>
         </div>
         <div id='chat-container'>
             <div id='chatbox-nav'>
                 <button class='chat-button' onclick="switchMessageWindow('Global')"><p>Global</p></button>
             </div>
             <div class='chatbox' id='chatbox'>
-                <div class='text-history' id='Global-history'>
-                    <!-- <div class='message'>Derick Fan: Hello</div>
-                    <div class='message'>John Doe: Hello Derick Fan</div>
-                    <div class='message user-message'>Helllllllo</div>
-                    <div class='message user-message'>Hellkubnulllllo</div>
-                    <div class='message'>John Doe: Hello aicndslcjndhkbkbkbkbsjkvndskv</div>
-                    <div class='message'>Derick Fan: ajcnsdljcdnjklds</div> -->
-                </div>
+                <div class='text-history' id='Global-history'></div>
             </div>
             <textarea id='text-input'></textarea>
         </div>
-        <div id='online-container'>
-            <div id='room-container'>
-                <h1>Online Rooms</h1>
-                <button class='user-button' id='Global' onclick="switchMessageWindow(id)">Global</button>
-            </div>
-            <div id='user-container'>
-                <h1>Online Users</h1>
-                <!-- <button class='user-button' id='Derick Fan' onclick="switchMessageWindow(id)">Derick Fan</button>
-                <button class='user-button' id='John Doe' onclick="switchMessageWindow(id)">John Doe</button>
-                <button class='user-button' id='Kareem Itani' onclick="switchMessageWindow(id)">Kareem Itani</button> -->
-            </div>
-        </div>
+        
     </div>
     <script defer src='scripts.js'></script>
 </body>

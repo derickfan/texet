@@ -1,30 +1,26 @@
+:root {
+    --primary-color: #363636;
+    --secondary-color: #363636;
+    --text-color: white ;
+}
+
 * {
     margin: 0px;
     padding: 0px;
-    color: white;
-    overflow: hidden;
+    color: var(--text-color);
+    overflow: none;
 }
 
 #container {
     display: flex;
     flex-direction: row;
-    background-color: #0C0C0D;
-}
-
-#info-container {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    width: 15vw;
-    height: 100vh;
-    background-color: #0C0C0D;
-    /* border-style: solid; */
+    background-color: var(--primary-color);
 }
 
 #chat-container {
     display: flex;
     flex-direction: column;
-    width: 70vw;
+    width: 85vw;
     height: 100vh;
     /* border-style: solid; */
 }
@@ -32,17 +28,18 @@
 #chatbox-nav {
     display: flex;
     flex-direction: row;
-    border: solid;
-    border-top: none;
+    border: none;
+    border-bottom: solid;
+    /* border-left: solid; */
     border-width: 1px;
-    /* border-color: white; */
-    height: 5%;
+    height: 3%;
 }
 
 .chatbox {
     display: flex;
     width: 100%;
     height: 80%;
+    overflow: scroll;
 }
 
 .text-history {
@@ -50,70 +47,118 @@
     flex-direction: column;
     width: 100%;
     height: 100%;
-    background-color: #0C0C0D;
+    background-color: var(--primary-color);
     font-size: 25px;
 }
 
 .message:first-child{
-    /* padding-top: 10px; */
+    padding-top: 10px;
 }
 
 .message {
-    padding-left: 10px;
+    padding-left: 50px;
 }
 
 .user-message {
+    padding-right: 50px;
     direction: rtl;
 }
 
 .message:nth-child(even) {
-    background-color: #302F36;
+    background-color: var(--primary-color);
+    filter: brightness(150%);
 }
 
 #text-input {
     display: flex;
     width: 100%;
-    height: 15%;
+    height: 17%;
     resize: none;
-    background-color: #3E4244;
-    /* border-color: white; */
+    background-color: var(--secondary-color);
+    padding-left: 10px;
+    filter: brightness(150%);
     font-size: 30px;
-    border: none;
+    /* border: none; */
     outline: none;
+    color: var(--text-color);
 }
 
 #online-container {
     display: flex;
+    text-align: center;
+    border-right: solid;
+    border-width: 1px;
     width: 15vw;
     flex-direction: column;
+    background-color: var(--secondary-color);
+}
+
+#logo {
+    font-size: 3vh;
+    width: 100%;
+    height: 30%;
+    border-bottom: solid;
+    border-width: 1px;
+}
+
+#info-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    width: 100%;
+    height: 20%;
+    border-bottom: solid;
+    border-width: 1px;
 }
 
 #room-container {
     display: flex;
+    margin-top: 10px;
     flex-direction: column;
     width: 100%;
-    height: 50%;
+    height: 40%;
     text-align: center;
+    overflow: scroll;
 }
 
 #user-container {
     display: flex;
     flex-direction: column;
+    margin-top: 10px;
     width: 100%;
-    height: 50%;
+    height: 40%;
     text-align: center;
+    border-bottom: solid;
+    border-width: 1px;
+    overflow: scroll;
 }
 
 button {
     font-size: 20px;
-    /* margin-top: 5px; */
     text-decoration: none;
     background: none;
     border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.user-button {
+    align-self: center;
+    color: var(--text-color);
+    border-color: var(--text-color);
+    margin-top: 4px;
+    padding: 3px;
+    width: 75%;
+    border: solid;
+    border-width: 1px;
 }
 
 .chat-button {
     border: solid;
+    border-left: none;
+    border-bottom: none;
+    border-width: 1px;
+    /* background-color: var(--secondary-color); */
 }
 
 .chat-button p {
@@ -121,17 +166,11 @@ button {
     margin-right: 10px;
 }
 
-
-#user-button {
-    color: black;
+#username {
+    margin-top: 10px;
 }
 
 #username-input {
-    background-color: #3E4244;
+    color: black;
     outline: none;
-}
-
-button {
-    outline: none;
-    cursor: pointer;
 }
