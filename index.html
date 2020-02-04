@@ -10,31 +10,41 @@
     <title>Texet</title>
 </head>
 <body>
-    <div class='container'>
-        <div class='nav-container'>
+    <div id='container'>
+        <div id='info-container'>
             <h1>Texet</h1>
+            <div>
+                Guest Name:
+                <input id='username-input' onchange="attemptLogin()">
+            </div>
+            <button onsubmit="attemptLogin()">Login</button>
         </div>
-        <div class='body-container'>
-            <div class='user-container'>
-                <div id='username'>
-                    Guest Name:
-                    <input type='text' id='username-input' onchange='attemptLogin()' autocomplete='off'>
-                    <input type='button' id='login-button' value='login' onchange='attemptLogin()'>
+        <div id='chat-container'>
+            <div id='chatbox-nav'>
+                <button class='chat-button' onclick="switchMessageWindow('Global')"><p>Global</p></button>
+            </div>
+            <div class='chatbox' id='chatbox'>
+                <div class='text-history' id='Global-history'>
+                    <!-- <div class='message'>Derick Fan: Hello</div>
+                    <div class='message'>John Doe: Hello Derick Fan</div>
+                    <div class='message user-message'>Helllllllo</div>
+                    <div class='message user-message'>Hellkubnulllllo</div>
+                    <div class='message'>John Doe: Hello aicndslcjndhkbkbkbkbsjkvndskv</div>
+                    <div class='message'>Derick Fan: ajcnsdljcdnjklds</div> -->
                 </div>
             </div>
-            <div class='chatbox-container' id='chatbox-container'>
-                <div class='chatbox-nav' id='chatbox-nav'>
-                    <button onclick="switchMessageWindow('global')">Global</button>
-                </div>
-                <div class='chatbox' id='global-chatbox'>
-                    <div class='message-container' id='global-history'></div>
-                    <div class='input-container'>
-                        <input type='text' class='text-input' id='global-input' onchange='sendMessage()' autocomplete='off'>
-                    </div>
-                </div>
+            <textarea id='text-input'></textarea>
+        </div>
+        <div id='online-container'>
+            <div id='room-container'>
+                <h1>Online Rooms</h1>
+                <button class='user-button' id='Global' onclick="switchMessageWindow(id)">Global</button>
             </div>
-            <div class='user-container' id='users'>
+            <div id='user-container'>
                 <h1>Online Users</h1>
+                <!-- <button class='user-button' id='Derick Fan' onclick="switchMessageWindow(id)">Derick Fan</button>
+                <button class='user-button' id='John Doe' onclick="switchMessageWindow(id)">John Doe</button>
+                <button class='user-button' id='Kareem Itani' onclick="switchMessageWindow(id)">Kareem Itani</button> -->
             </div>
         </div>
     </div>

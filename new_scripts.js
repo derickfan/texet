@@ -1,5 +1,5 @@
-let socket = io.connect('https://morning-beyond-78477.herokuapp.com/')
-// let socket = io.connect('http://localhost:5000')
+// let socket = io.connect('https://morning-beyond-78477.herokuapp.com/')
+let socket = io.connect('http://localhost:5000')
 document.getElementById('text-input').disabled = true
 
 
@@ -16,18 +16,6 @@ socket.on('join', (name) => {
 })
 socket.on('leave', (name) => {
     userLeave(name)
-})
-
-// when receiving a message request will add the message
-// to text history
-socket.on('message', (messageObj) => {
-    console.log(messageObj)
-    if(messageObj['recipient'] === 'Global') {
-        concatMessage(messageObj, messageObj['recipient'])
-    } else {
-        newMessageWindow(messageObj['name'])
-        concatMessage(messageObj, messageObj['name'])
-    }
 })
 
 function userJoined(name) {
@@ -122,7 +110,6 @@ function sendMessage() {
     messageObj['name'] = username
     messageObj['message'] = document.getElementById('text-input').value
     messageObj['recipient'] = activeChat
-    console.log(messageObj)
     socket.emit('message', messageObj)
 
     concatMessage(messageObj, activeChat)
@@ -132,12 +119,12 @@ function sendMessage() {
 function concatMessage(messageObj, chatbox) {
     let textHistory = document.getElementById(`${chatbox}-history`)
     let message = document.createElement('div')
-    if(messageObj['name'] === username) {
+    if(name === username) {
         message.setAttribute('class', 'message user-message')
         message.innerHTML = textarea.value
     } else {
         message.setAttribute('class', 'message')
-        message.innerHTML = `${messageObj['name']}: ${messageObj['message']}`
+        message.innerHTML = `${messageObj[name]}: ${messageObj[message]}`
     }   
     
     textHistory.appendChild(message)
